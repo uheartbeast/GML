@@ -14,13 +14,10 @@ for (var _y=0; _y<_height; _y++) {
 		var _item_map = ds_map_create();
 		_item_map[? "name"] = object_get_name(_item.object_index);
 		_item_map[? "amount"] = _item.amount_;
-		var _item_string = json_encode(_item_map);
-		_item_grid[# _x, _y] = _item_string;
-		ds_map_destroy(_item_map);
+		_item_grid[# _x, _y] = _item_map;
 	}
 }
 
 var _inventory_grid_string = json_encode(_item_grid);
-show_debug_message(_inventory_grid_string);
 ini_write_string(_section, _name, _inventory_grid_string);
 ds_grid_destroy(_item_grid);
